@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://bob-1208.github.io/2022/09/02/hook%E6%A1%86%E6%9E%B6-xposed%E5%92%8Cfrida/IMG_9166.PNG">
 <meta property="og:image" content="https://bob-1208.github.io/2022/09/02/hook%E6%A1%86%E6%9E%B6-xposed%E5%92%8Cfrida/IMG_9167.PNG">
 <meta property="article:published_time" content="2022-09-02T08:26:28.000Z">
-<meta property="article:modified_time" content="2022-09-02T08:50:55.708Z">
+<meta property="article:modified_time" content="2022-09-02T08:54:27.834Z">
 <meta property="article:author" content="bob-li">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="hook">
@@ -355,17 +355,15 @@
 </li>
 </ul>
 <ul>
-<li><ul>
-<li>frida进阶使用：</li>
-</ul>
+<li><p>frida进阶使用：</p>
 <ul>
-<li><p>** RPC远程调用</p>
+<li><p>RPC远程调用</p>
 <p><code>python层</code>与<code>js层</code>交互，示例代码如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> frida<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_message</span>(<span class="hljs-params">message, data</span>):<br>    <span class="hljs-keyword">if</span> message[<span class="hljs-string">&#x27;type&#x27;</span>] == <span class="hljs-string">&#x27;send&#x27;</span>:<br>        <span class="hljs-built_in">print</span>(message[<span class="hljs-string">&#x27;payload&#x27;</span>])<br>    <span class="hljs-keyword">elif</span> message[<span class="hljs-string">&#x27;type&#x27;</span>] == <span class="hljs-string">&#x27;error&#x27;</span>:<br>        <span class="hljs-built_in">print</span>(message[<span class="hljs-string">&#x27;stack&#x27;</span>])<br><br>// attach目标进程<br>session = frida.get_usb_device().attach(<span class="hljs-string">&#x27;android.process.media&#x27;</span>)<br><br>// js代码<br>source = <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    rpc.exports = &#123;              // 通过rpc.exports关键字定义需要导出的两个函数</span><br><span class="hljs-string">    add: function (a, b) &#123;</span><br><span class="hljs-string">        return a + b;</span><br><span class="hljs-string">    &#125;,</span><br><span class="hljs-string">    sub: function (a, b) &#123;</span><br><span class="hljs-string">        return new Promise(function (resolve) &#123;</span><br><span class="hljs-string">        setTimeout(function () &#123;</span><br><span class="hljs-string">            resolve(a - b);</span><br><span class="hljs-string">        &#125;, 100);</span><br><span class="hljs-string">        &#125;);</span><br><span class="hljs-string">    &#125;</span><br><span class="hljs-string">    &#125;;</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>// 创建脚本并注入进程，加载js脚本<br>script = session.create_script(source)<br>script.on(<span class="hljs-string">&#x27;message&#x27;</span>, on_message)<br>script.load()<br><span class="hljs-built_in">print</span>(script.exports.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))<br><span class="hljs-built_in">print</span>(script.exports.sub(<span class="hljs-number">5</span>, <span class="hljs-number">3</span>))<br>session.detach()<br></code></pre></td></tr></table></figure>
 
 
 </li>
-<li><p>** Process对象</p>
+<li><p>Process对象</p>
 <ol>
 <li><p><code>Process.id</code>：返回附加目标进程的<code>PID</code></p>
 </li>
@@ -399,7 +397,7 @@
 </li>
 </ol>
 </li>
-<li><p>** Module对象</p>
+<li><p>Module对象</p>
 <ol>
 <li><p>属性：</p>
 <table>
@@ -444,10 +442,9 @@
 <li></li>
 </ol>
 </li>
-<li><p>** Memory对象</p>
+<li><p>Memory对象</p>
 </li>
-<li><p>**</p>
-</li>
+<li></li>
 </ul>
 </li>
 <li><p><strong>frida实例操作</strong></p>
