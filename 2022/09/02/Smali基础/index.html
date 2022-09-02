@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://bob-1208.github.io/Users/bob/.config/joplin-desktop/resources/截屏2022-08-26%2011.53.41.png">
 <meta property="og:image" content="https://bob-1208.github.io/Users/bob/.config/joplin-desktop/resources/截屏2022-08-26%2010.52.53.png">
 <meta property="article:published_time" content="2022-09-02T07:02:28.000Z">
-<meta property="article:modified_time" content="2022-09-02T07:31:43.238Z">
+<meta property="article:modified_time" content="2022-09-02T07:36:05.347Z">
 <meta property="article:author" content="bob-li">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Smali">
@@ -468,17 +468,17 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">apktool d -f shuqi.apk -only-main-classes  <br><span class="hljs-meta prompt_"># </span><span class="language-bash">正常apktool d ***.apk就可以但是书旗的会提示，非法Dex，这是因为apk里有加密过后的dex文件，比如有些apk的assets目录下有加密后的Dex文件，添加–only-main-classes参数</span><br></code></pre></td></tr></table></figure>
 
 <p>反编译生成以下文件：</p>
-<p><img src="/./Smali%E5%9F%BA%E7%A1%80/%E6%88%AA%E5%B1%8F2022-08-26-11.33.25.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-26-11.33.25.png"></p>
+<p><img src="/./Smali%E5%9F%BA%E7%A1%80/%E6%88%AA%E5%B1%8F2022-08-26-11.33.25.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-26-11.33.25"></p>
 </li>
 <li><p>按照正常的程序我们现在就可以修改反编译后的代码，然后打包、重新签名，再次进行安装。</p>
 <p>但是该app有签名验证，签名验证能防止进行二次打包，会将打包后前签名和代码中的进行比对，如果签名不对将启动失败。</p>
 </li>
 <li><p>然后，将shuqi.apk载入jadx进行反汇编，找到入口</p>
-<p><img src="/./Smali%E5%9F%BA%E7%A1%80/%E6%88%AA%E5%B1%8F2022-08-26-11.14.51.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-26-11.14.51.png"></p>
+<p><img src="/./Smali%E5%9F%BA%E7%A1%80/%E6%88%AA%E5%B1%8F2022-08-26-11.14.51.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-26-11.14.51"></p>
 <p>直接搜索包含<code>Application</code>字段的类，一般混淆也不会混淆这个入口</p>
 </li>
 <li><p>跟进到<code>com.shuqi.app.ShuqiApplication</code>中</p>
-<p><img src="/./Smali%E5%9F%BA%E7%A1%80/%E6%88%AA%E5%B1%8F2022-08-26-11.41.49.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-26-11.41.49.png"></p>
+<p><img src="/./Smali%E5%9F%BA%E7%A1%80/%E6%88%AA%E5%B1%8F2022-08-26-11.41.49.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-26-11.41.49"></p>
 <p>发现前面验证函数<code>checkSigAsync()</code></p>
 </li>
 <li><p>继续跟进到<code>checkSigAsync()</code>中</p>
