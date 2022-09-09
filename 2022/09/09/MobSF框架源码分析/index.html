@@ -18,8 +18,8 @@
   
     <meta name="description" content="MobSF动态分析框架源码分析： 项目入口：MobSF基于Django开发，入口在&#x2F;MobSF&#x2F;urls.py  一般功能URL 一般功能包括：上传APP、下载报告、信息说明、搜索、删除等   静态分析对应的URL 静态分析分为：Android应用、ios应用、Windows应用、PDF和应用hash比较查重   动态分析对应的URL 只支持Android应用的动态分析，包括Android设备操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://bob-1208.github.io/2022/08/29/MobSF%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/index.html">
+<meta property="og:title" content="MobSF框架源码分析">
+<meta property="og:url" content="https://bob-1208.github.io/2022/09/09/MobSF%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="MobSF动态分析框架源码分析： 项目入口：MobSF基于Django开发，入口在&#x2F;MobSF&#x2F;urls.py  一般功能URL 一般功能包括：上传APP、下载报告、信息说明、搜索、删除等   静态分析对应的URL 静态分析分为：Android应用、ios应用、Windows应用、PDF和应用hash比较查重   动态分析对应的URL 只支持Android应用的动态分析，包括Android设备操作">
 <meta property="og:locale" content="zh_CN">
@@ -58,15 +58,17 @@
 <meta property="og:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.34.45.png">
 <meta property="og:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.25.34.png">
 <meta property="og:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.28.50.png">
-<meta property="article:published_time" content="2022-08-29T08:06:05.565Z">
-<meta property="article:modified_time" content="2022-09-09T08:03:11.060Z">
+<meta property="article:published_time" content="2022-09-09T08:21:12.000Z">
+<meta property="article:modified_time" content="2022-09-09T08:25:07.040Z">
 <meta property="article:author" content="bob-li">
+<meta property="article:tag" content="Dynamic Analysis">
+<meta property="article:tag" content="Framework">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.26.11.png">
   
   
   
-  <title>Hexo</title>
+  <title>MobSF框架源码分析 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -231,7 +233,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="MobSF框架源码分析"></span>
           
         </div>
 
@@ -247,8 +249,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-29 16:06" pubdate>
-          2022年8月29日 下午
+        <time datetime="2022-09-09 16:21" pubdate>
+          2022年9月9日 下午
         </time>
       </span>
     
@@ -308,7 +310,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">MobSF框架源码分析</h1>
             
             
               <div class="markdown-body">
@@ -504,7 +506,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="MobSF的API接口"><a href="#MobSF的API接口" class="headerlink" title="MobSF的API接口"></a>MobSF的API接口</h1>
+
                 
               </div>
             
@@ -512,6 +514,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Android-Security/" class="category-chain-item">Android Security</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Dynamic-Analysis/">#Dynamic Analysis</a>
+      
+        <a href="/tags/Framework/">#Framework</a>
+      
+    </div>
   
 </div>
 
@@ -521,8 +553,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>https://bob-1208.github.io/2022/08/29/MobSF源码分析/</div>
+      <div>MobSF框架源码分析</div>
+      <div>https://bob-1208.github.io/2022/09/09/MobSF框架源码分析/</div>
     </div>
     <div class="license-meta">
       
@@ -534,7 +566,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月29日</div>
+          <div>2022年9月9日</div>
         </div>
       
       
@@ -564,15 +596,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/02/Smali%E5%9F%BA%E7%A1%80/" title="Smali基础">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Smali基础</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/09/02/hook%E6%A1%86%E6%9E%B6-xposed%E5%92%8Cfrida/" title="hook框架-xposed和frida">
+                        <span class="hidden-mobile">hook框架-xposed和frida</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
