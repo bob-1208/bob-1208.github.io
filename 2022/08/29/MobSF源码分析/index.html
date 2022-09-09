@@ -318,18 +318,18 @@
 <ul>
 <li><p>一般功能URL</p>
 <p>一般功能包括：上传APP、下载报告、信息说明、搜索、删除等</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.26.11.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.26.11" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.26.11.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.26.11" style="zoom:40%;" />
 </li>
 <li><p>静态分析对应的URL</p>
 <p>静态分析分为：Android应用、ios应用、Windows应用、PDF和应用hash比较查重</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.27.06.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.27.06" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.27.06.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.27.06" style="zoom:40%;" />
 </li>
 <li><p>动态分析对应的URL</p>
 <p>只支持Android应用的动态分析，包括Android设备操作、动态测试、frida框架和动态分析报告生成</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.44.07.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.44.07" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.44.07.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.44.07" style="zoom:40%;" />
 </li>
 <li><p>封装的api接口</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.45.09.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.45.09" style="zoom:40%;"></li>
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.45.09.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.45.09" style="zoom:40%;" /></li>
 </ul>
 </li>
 <li><p>一般功能模块分析：</p>
@@ -339,13 +339,13 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">re_path(<span class="hljs-string">r&#x27;^upload/$&#x27;</span>, home.Upload.as_view),<br></code></pre></td></tr></table></figure>
 
 <p>跟进到<code>/MobSF/views/home.py</code>中的<code>upload_html()</code>函数，上传只支持<code>POST</code>方法：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2017.09.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 17.09.12" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2017.09.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 17.09.12" style="zoom:40%;" />
 
 <p>随后会对上传的的文件分类，根据不同类型做对应的扫描操作：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2017.11.20.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 17.11.20" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2017.11.20.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 17.11.20" style="zoom:40%;" />
 </li>
 <li><p>扫描：跟进到<code>/MobSF/views/scanning.py</code>中的<code>Scanning</code>类，发现扫描分为5类，分别是：APK、XAPK、APK、ZIP、IPA包和APPX包。然后，对apk扫描函数进一步分析：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2017.22.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 17.22.12" style="zoom:50%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2017.22.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 17.22.12" style="zoom:50%;" />
 
 <p>首先计算出上传文件的md5值，然后将扫描任务添加的最近扫描。</p>
 </li>
@@ -355,32 +355,32 @@
 <p>静态分析模块在目录<code>/StaticAnalyzer/views/</code>下，我们以apk分析为例</p>
 <ul>
 <li><p>静态分析开始后，首先解压上传的apk包，若解压失败则报错并退出</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2010.11.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 10.11.12" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2010.11.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 10.11.12" style="zoom:40%;" />
 </li>
 <li><p>然后正式进入静态分析，先是对<code>AndroidManifest.xml</code>的分析：</p>
 <ol>
 <li><p>使用apktool反编译apk包，获取XML文件</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2010.24.13.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 10.24.13" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2010.24.13.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 10.24.13" style="zoom:40%;" />
 
 <p>然后，提取XML文件中的参数信息，包括：<code>application、user-permission、manifest、activity、service、provider</code>等参数信息。</p>
 </li>
 <li><p>权限分析</p>
 <p>将权限的安全等级分为4级</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2010.42.13.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 10.42.13" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2010.42.13.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 10.42.13" style="zoom:40%;" />
 </li>
 <li><p>配置安全分析</p>
 </li>
 </ol>
 </li>
 <li><p>获取app名和图标，从AndroidManifest.xml中的<code>&lt;application&gt;</code>标签下的<code>android:lable</code>属性值得到app名，或者读取<code>/res/values/strings.xml</code>中的属性值</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2012.10.57.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 12.10.57" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2012.10.57.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 12.10.57" style="zoom:40%;" />
 
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2011.45.19.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 11.45.19" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2011.45.19.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 11.45.19" style="zoom:40%;" />
 
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2011.54.18.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 11.54.18" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2011.54.18.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 11.54.18" style="zoom:40%;" />
 </li>
 <li><p>设置manifest链接</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2012.12.02.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 12.12.02" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2012.12.02.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 12.12.02" style="zoom:40%;" />
 </li>
 <li><p>manifest文件信息提取和安全分析，前面有提到，这里不再重复</p>
 </li>
@@ -399,7 +399,7 @@
 </li>
 <li><p>apkid_analysis：<code>/MalwareAnalyzer/views/apkid.py</code></p>
 <p>从apkid的python库中导入相关库，然后开始分析</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2014.11.17.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 14.11.17" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2014.11.17.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 14.11.17" style="zoom:40%;" />
 </li>
 <li><p>Trackers：<code>/MalwareAnalyzer/views/Trackers.py</code></p>
 <p><code>_update_tracker_db()</code>：更新数据库</p>
@@ -412,64 +412,64 @@
 </li>
 <li><p>apk_2_java&#x2F;dex_2_smali：<code>/StaticAnalyzer/views/android/converter.py</code></p>
 <p>dex_2_smali：通过backsmali将dex反编译为smali代码</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2014.43.05.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 14.43.05" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2014.43.05.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 14.43.05" style="zoom:40%;" />
 
 <p>apk_2_java：通过jadx反编译apk为java代码</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2014.59.25.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 14.59.25" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2014.59.25.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 14.59.25" style="zoom:40%;" />
 </li>
 <li><p>code_analysis</p>
 <p>进行代码和api的规则匹配，提取URL和e-mail信息</p>
 <p>代码正则匹配和规则：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2015.59.47.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 15.59.47" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2015.59.47.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 15.59.47" style="zoom:40%;" />
 
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2016.01.20.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 16.01.20" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2016.01.20.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 16.01.20" style="zoom:40%;" />
 
 <p>api正则匹配和规则：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2016.02.07.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 16.02.07" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2016.02.07.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 16.02.07" style="zoom:40%;" />
 
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2016.02.30.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 16.02.30" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2016.02.30.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 16.02.30" style="zoom:40%;" />
 
 <p>URL匹配：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2015.33.53.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 15.33.53" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2015.33.53.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 15.33.53" style="zoom:40%;" />
 
 <p>email匹配：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2015.34.16.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 15.34.16" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-09-09%2015.34.16.png" srcset="/img/loading.gif" lazyload alt="截屏2022-09-09 15.34.16" style="zoom:40%;" />
 </li>
 <li><p>quark分析</p>
 <p>利用恶意apk分析框架quark对apk进行分析</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.36.17.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.36.17" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.36.17.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.36.17" style="zoom:40%;" />
 </li>
 <li><p>提取字符串信息</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.34.14.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.34.14" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.34.14.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.34.14" style="zoom:40%;" />
 </li>
 <li><p>数据库相关</p>
 <p>数据准备：firebase数据库检测、提取域名和恶意软件检测，复制app图标</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.45.34.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.45.34" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.45.34.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.45.34" style="zoom:40%;" />
 
 <p>数据库交互（入库，更新）</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.48.34.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.48.34" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.48.34.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.48.34" style="zoom:40%;" />
 </li>
 <li><p>VT信息：从VirusTotal获取样本报告信息</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.56.09.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.56.09" style="zoom:40%;"></li>
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.56.09.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.56.09" style="zoom:40%;" /></li>
 </ul>
 </li>
 <li><p><strong>动态分析模块</strong></p>
 <p><code>/DynamicAnalyzer/views/android/</code>目录下</p>
 <ul>
 <li><p>首先还是在<code>/MobSF/urls.py</code>文件中，找到动态分析模块</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2011.40.50.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 11.40.50" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2011.40.50.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 11.40.50" style="zoom:40%;" />
 </li>
 <li><p>然后跟进到<code>dynamic_analysis()</code>函数</p>
 <p>该函数为安卓动态分析的入口点，先会检测模拟器是否运行：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2011.49.23.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 11.49.23" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2011.49.23.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 11.49.23" style="zoom:40%;" />
 
 <p>若模拟器正常运行并被检测到，则获取设备信息。然后会设置代理ip，通过<code>get_proxy_ip()</code>来获取当前网络ip，并根据它来设置代理ip</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2012.01.40.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 12.01.40" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2012.01.40.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 12.01.40" style="zoom:40%;" />
 
 <p>若模拟器未启动或没检测到，则通过<code>print_n_send_error_response()</code>报错</p>
 </li>
 <li><p>然后，跟进到函数<code>dynamic_analyzer()</code>，在获取到设备信息后，通过<code>Evironment.py</code>模块设置动态分析环境：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2012.20.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 12.20.12" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2012.20.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 12.20.12" style="zoom:40%;" />
 </li>
 <li><p>跟进到<code>Enronmen.py</code>中，通过下面一系列函数来设置动态分析环境；</p>
 </li>
@@ -491,13 +491,13 @@
 </li>
 <li><p>跟进<code>analysis.py</code>文件</p>
 <p>首先，收集日志数据并遍历筛选：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.34.45.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 15.34.45" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.34.45.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 15.34.45" style="zoom:40%;" />
 
 <p>通过正则表达式收集URL数据，检查恶意URL，并匹配是否出现在恶意软件列表中：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.25.34.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 15.25.34" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.25.34.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 15.25.34" style="zoom:40%;" />
 
 <p>通过正则表达式提取e-mail地址，并汇总提取到的信息：</p>
-<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.28.50.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 15.28.50" style="zoom:40%;">
+<img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.28.50.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 15.28.50" style="zoom:40%;" />
 </li>
 <li><p>动态分析还有以下功能函数，简单介绍一下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_screenshots</span>() <span class="hljs-comment"># 获取屏幕截图</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_tls_logs</span>() <span class="hljs-comment"># 获取TLS/SSL测试日志</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_log_data</span>() <span class="hljs-comment"># 对日志数据进行分析，得到web数据、日志数据、域名数据、API数据、Frida数据，并返回。</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_app_files</span>() <span class="hljs-comment"># 从设备获取APP文件，包括提取设备数据，对设备中的数据做静态分析等</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">generate_download</span>（） <span class="hljs-comment"># 生成文件下载，生成文件下载后，会删除现有数据，然后复制新数据</span><br></code></pre></td></tr></table></figure></li>
