@@ -16,12 +16,12 @@
   <meta name="author" content="bob-li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="MobSF动态分析框架源码分析： 项目入口：MobSF基于Django开发，入口在&#x2F;MobSF&#x2F;urls.py  一般功能URL 一般功能包括：上传APP、下载报告、信息说明、搜索、删除等   静态分析对应的URL 静态分析分为：Android应用、ios应用、Windows应用、PDF和应用hash比较查重   动态分析对应的URL 只支持Android应用的动态分析，包括Android设备操作">
+    <meta name="description" content="MobSF动态分析框架源码分析：项目入口：MobSF基于Django开发，入口在&#x2F;MobSF&#x2F;urls.py 一般功能URL 一般功能包括：上传APP、下载报告、信息说明、搜索、删除等   静态分析对应的URL 静态分析分为：Android应用、ios应用、Windows应用、PDF和应用hash比较查重   动态分析对应的URL 只支持Android应用的动态分析，包括Android设备操作、动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MobSF框架源码分析">
 <meta property="og:url" content="https://bob-1208.github.io/2022/09/09/MobSF%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="MobSF动态分析框架源码分析： 项目入口：MobSF基于Django开发，入口在&#x2F;MobSF&#x2F;urls.py  一般功能URL 一般功能包括：上传APP、下载报告、信息说明、搜索、删除等   静态分析对应的URL 静态分析分为：Android应用、ios应用、Windows应用、PDF和应用hash比较查重   动态分析对应的URL 只支持Android应用的动态分析，包括Android设备操作">
+<meta property="og:description" content="MobSF动态分析框架源码分析：项目入口：MobSF基于Django开发，入口在&#x2F;MobSF&#x2F;urls.py 一般功能URL 一般功能包括：上传APP、下载报告、信息说明、搜索、删除等   静态分析对应的URL 静态分析分为：Android应用、ios应用、Windows应用、PDF和应用hash比较查重   动态分析对应的URL 只支持Android应用的动态分析，包括Android设备操作、动">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.26.11.png">
 <meta property="og:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.27.06.png">
@@ -59,7 +59,7 @@
 <meta property="og:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.25.34.png">
 <meta property="og:image" content="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2015.28.50.png">
 <meta property="article:published_time" content="2022-09-09T08:21:12.000Z">
-<meta property="article:modified_time" content="2022-09-09T08:25:07.040Z">
+<meta property="article:modified_time" content="2022-09-09T08:35:18.538Z">
 <meta property="article:author" content="bob-li">
 <meta property="article:tag" content="Dynamic Analysis">
 <meta property="article:tag" content="Framework">
@@ -315,9 +315,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="MobSF动态分析框架"><a href="#MobSF动态分析框架" class="headerlink" title="MobSF动态分析框架"></a>MobSF动态分析框架</h1><h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><ul>
-<li><p>项目入口：MobSF基于Django开发，入口在<code>/MobSF/urls.py</code></p>
-<ul>
+                <h1 id="MobSF动态分析框架"><a href="#MobSF动态分析框架" class="headerlink" title="MobSF动态分析框架"></a>MobSF动态分析框架</h1><h2 id="源码分析："><a href="#源码分析：" class="headerlink" title="源码分析："></a>源码分析：</h2><h3 id="项目入口：MobSF基于Django开发，入口在-MobSF-urls-py"><a href="#项目入口：MobSF基于Django开发，入口在-MobSF-urls-py" class="headerlink" title="项目入口：MobSF基于Django开发，入口在/MobSF/urls.py"></a>项目入口：MobSF基于Django开发，入口在<code>/MobSF/urls.py</code></h3><ul>
 <li><p>一般功能URL</p>
 <p>一般功能包括：上传APP、下载报告、信息说明、搜索、删除等</p>
 <img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.26.11.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.26.11" style="zoom:40%;" />
@@ -333,9 +331,7 @@
 <li><p>封装的api接口</p>
 <img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-29%2016.45.09.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-29 16.45.09" style="zoom:40%;" /></li>
 </ul>
-</li>
-<li><p>一般功能模块分析：</p>
-<ul>
+<h3 id="一般功能模块分析："><a href="#一般功能模块分析：" class="headerlink" title="一般功能模块分析："></a>一般功能模块分析：</h3><ul>
 <li><p>上传：</p>
 <p>定位一般功能入口中的上传模块：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">re_path(<span class="hljs-string">r&#x27;^upload/$&#x27;</span>, home.Upload.as_view),<br></code></pre></td></tr></table></figure>
@@ -352,9 +348,7 @@
 <p>首先计算出上传文件的md5值，然后将扫描任务添加的最近扫描。</p>
 </li>
 </ul>
-</li>
-<li><p><strong>静态分析模块</strong></p>
-<p>静态分析模块在目录<code>/StaticAnalyzer/views/</code>下，我们以apk分析为例</p>
+<h3 id="静态分析模块"><a href="#静态分析模块" class="headerlink" title="静态分析模块"></a>静态分析模块</h3><p>静态分析模块在目录<code>/StaticAnalyzer/views/</code>下，我们以apk分析为例</p>
 <ul>
 <li><p>静态分析开始后，首先解压上传的apk包，若解压失败则报错并退出</p>
 <img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2010.11.12.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 10.11.12" style="zoom:40%;" />
@@ -454,9 +448,7 @@
 <li><p>VT信息：从VirusTotal获取样本报告信息</p>
 <img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-30%2015.56.09.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-30 15.56.09" style="zoom:40%;" /></li>
 </ul>
-</li>
-<li><p><strong>动态分析模块</strong></p>
-<p><code>/DynamicAnalyzer/views/android/</code>目录下</p>
+<h3 id="动态分析模块"><a href="#动态分析模块" class="headerlink" title="动态分析模块"></a>动态分析模块</h3><p>动态分析模块在<code>/DynamicAnalyzer/views/android/</code>目录下</p>
 <ul>
 <li><p>首先还是在<code>/MobSF/urls.py</code>文件中，找到动态分析模块</p>
 <img src="https://bob-markdown.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2022-08-31%2011.40.50.png" srcset="/img/loading.gif" lazyload alt="截屏2022-08-31 11.40.50" style="zoom:40%;" />
@@ -503,8 +495,6 @@
 </li>
 <li><p>动态分析还有以下功能函数，简单介绍一下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_screenshots</span>() <span class="hljs-comment"># 获取屏幕截图</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_tls_logs</span>() <span class="hljs-comment"># 获取TLS/SSL测试日志</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_log_data</span>() <span class="hljs-comment"># 对日志数据进行分析，得到web数据、日志数据、域名数据、API数据、Frida数据，并返回。</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_app_files</span>() <span class="hljs-comment"># 从设备获取APP文件，包括提取设备数据，对设备中的数据做静态分析等</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">generate_download</span>（） <span class="hljs-comment"># 生成文件下载，生成文件下载后，会删除现有数据，然后复制新数据</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
 </ul>
 
                 
